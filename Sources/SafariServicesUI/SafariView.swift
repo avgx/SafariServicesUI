@@ -1,4 +1,5 @@
 import SwiftUI
+#if canImport(SafariServices)
 import SafariServices
 
 /// SFSafariViewController Wrapper
@@ -28,3 +29,10 @@ public struct SafariView: UIViewControllerRepresentable {
     public func updateUIViewController(_ uiViewController: SFSafariViewController, context: Context) {
     }
 }
+#else
+public struct SafariView: View {
+    public var body: some View {
+        Text("Not available")
+    }
+}
+#endif

@@ -1,5 +1,7 @@
 import SwiftUI
 
+#if canImport(SafariServices)
+
 struct OpenURLInSafariViewModifier: ViewModifier {
     @State private var url: URL? = nil
     private var isPresented: Binding<Bool> {
@@ -47,3 +49,5 @@ extension View {
         return modifier(OpenURLInSafariViewModifier(configuration: configuration))
     }
 }
+
+#endif
